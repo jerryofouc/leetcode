@@ -1,6 +1,7 @@
 package jerryofouc.github.io;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,26 +11,31 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public class PreorderTranveral {
-    public ArrayList<Integer> preorderTraversal(TreeNode root) {
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        preorderTraversal(root,arrayList);
-        return  arrayList;
-
-    }
-
-    private void preorderTraversal(TreeNode root, ArrayList<Integer> arrayList) {
-        if(root != null){
-            arrayList.add(root.val);
-            preorderTraversal(root.left,arrayList);
-            preorderTraversal(root.right,arrayList);
-        }
-    }
-
     static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
         TreeNode(int x) { val = x; }
+    }
+    public ArrayList<Integer> preorderTraversal(TreeNode root) {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        if(root == null) {
+            return arrayList;
+        }else{
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+            stack.push(root);
+            while(!stack.isEmpty()){
+                TreeNode p = stack.pop();
+                while(p != null){
+                    arrayList.add(p.val);
+                    if(p.right != null){
+                        stack.push(p.right);
+                    }
+                    p = p.left;
+                }
+            }
+        }
+        return arrayList;
     }
 
 }
