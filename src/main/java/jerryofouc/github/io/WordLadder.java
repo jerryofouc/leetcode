@@ -21,7 +21,6 @@ public class WordLadder {
         }
     }
 
-
     public static int ladderLength(String start, String end, HashSet<String> dict) {
         dict.add(start);
         dict.add(end);
@@ -67,20 +66,6 @@ public class WordLadder {
         }else{
             return visitMap.get(end).distance+1;
         }
-    }
-
-
-    private static boolean interChangable(String word1, String word2) {
-        int diffNum = 0;
-        for (int i = 0; i < word1.length(); i++) {
-            if (word1.charAt(i) != word2.charAt(i)) {
-                diffNum++;
-            }
-        }
-        if (diffNum != 1) {
-            return false;
-        }
-        return true;
     }
 
     public static void main(String args[]) {
