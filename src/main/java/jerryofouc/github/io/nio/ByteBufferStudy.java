@@ -1,0 +1,26 @@
+package jerryofouc.github.io.nio;
+
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.IntBuffer;
+
+/**
+ * 功能介绍：
+ *
+ * @author zhangxiaojie
+ *         Date:  8/17/14
+ *         Time: 9:03
+ */
+public class ByteBufferStudy {
+    public static void main(String args[]){
+        ByteBuffer byteBuffer = ByteBuffer.allocate(100);
+        IntBuffer intBuffer = byteBuffer.asIntBuffer();
+        intBuffer.put(2);
+
+        System.out.println(byteBuffer.get());;
+        System.out.println(byteBuffer.get());
+        System.out.println(byteBuffer.get());
+        System.out.println(byteBuffer.get());
+
+    }
+}
