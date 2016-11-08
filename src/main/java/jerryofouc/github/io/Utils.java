@@ -25,4 +25,14 @@ public class Utils {
         }
         return null;
     }
+
+    public static ListNode getListNode(int[] a){
+        ListNode preHeader = new ListNode(-1);
+        ListNode cur = preHeader;
+        for(int i=0;i<a.length;i++){
+            cur.next = new ListNode(a[i]);
+            cur = cur.next;
+        }
+        return preHeader.next;
+    }
 }
