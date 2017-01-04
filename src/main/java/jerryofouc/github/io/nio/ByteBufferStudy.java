@@ -3,6 +3,7 @@ package jerryofouc.github.io.nio;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.IntBuffer;
+import java.util.concurrent.CyclicBarrier;
 
 /**
  * 功能介绍：
@@ -21,6 +22,8 @@ public class ByteBufferStudy {
         System.out.println(byteBuffer.get());
         System.out.println(byteBuffer.get());
         System.out.println(byteBuffer.get());
+
+        CyclicBarrier cyclicBarrier;
 
     }
 }
