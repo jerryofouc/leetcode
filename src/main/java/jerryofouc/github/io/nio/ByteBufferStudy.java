@@ -4,6 +4,8 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.IntBuffer;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 功能介绍：
@@ -24,6 +26,8 @@ public class ByteBufferStudy {
         System.out.println(byteBuffer.get());
 
         CyclicBarrier cyclicBarrier;
+        ReentrantLock reentrantLock;
+        Semaphore semaphore;
 
     }
 }
