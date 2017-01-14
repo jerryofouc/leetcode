@@ -4,6 +4,9 @@ package jerryofouc.github.io;
  * Created by xiaojiez on 1/13/17.
  * 这道题是一个动态规划题
  * 一定要注意记录结果空间，把计算的结果给记下来
+ * 做动态规划题：
+ * 1.找到递推function
+ * 2.看看结果能否通过记录，来减少重复计算
  */
 public class WildcardMatching {
     public static boolean isMatch(String s, String p) {
