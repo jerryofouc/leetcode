@@ -1,7 +1,5 @@
 package jerryofouc.github.io;
 
-import java.util.HashMap;
-
 /**
  * Created with IntelliJ IDEA.
  * User: zhangxiaojie
@@ -10,50 +8,63 @@ import java.util.HashMap;
  * To change this template use File | Settings | File Templates.
  */
 public class PalindromePartitioningII {
-    private static HashMap<String, Integer> minCutMap = new HashMap<String, Integer>();//memorize the minCutMap
-    private static HashMap<String, Boolean> palindromeMap = new HashMap<String, Boolean>();//memorize the palindrome
-
     public static int minCut(String s) {
-        if (s==null||s.length()==0||s.length() == 1||isPalindrome(s)) {//if is Palindrome return true directly
+        if (s.length() == 0) {
             return 0;
-        } else {
-            if (minCutMap.get(s) != null) {
-                return minCutMap.get(s);
+        }
+        if (s.length() == 1) {
+            return 0;
+        }
+
+        boolean[][] matrix = new boolean[s.length()][s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = 0; j < s.length(); j++) {
+                if (i == j) {
+                    matrix[i][j] = true;
+                } else {
+                    matrix[i][j] = false;
+                }
             }
-            Integer min = null;
-            for (int start = 0; start < s.length(); start++) {
-                if (isPalindrome(s.substring(0, start + 1))) {
-                    int cut = 1 + minCut(s.substring(start + 1, s.length()));
-                    if (min == null || cut < min) {
-                        min = cut;
+        }
+
+
+        int[] d = new int[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            d[i] = -1;
+        }
+        d[s.length() - 1] = 0;
+        if (s.charAt(s.length() - 2) == s.charAt(s.length() - 1)) {
+            matrix[s.length() - 2][s.length() - 1] = true;
+        }
+
+        for (int i = s.length() - 2; i >= 0; i--) {
+            int min = d[i + 1] + 1;
+            for (int j = i + 1; j < s.length() - 1; j++) {
+                if (s.charAt(i) == s.charAt(j) && (i + 1 == j || matrix[i + 1][j - 1])) {
+                    matrix[i][j] = true;
+                    if (1 + d[j + 1] < min) {
+                        min = 1 + d[j + 1];
                     }
                 }
             }
-            minCutMap.put(s, min);
-            return min;
+            d[i] = min;
+            if (s.charAt(i) == s.charAt(s.length() - 1) && (i+1==s.length()-1||matrix[i + 1][s.length() - 2])) {
+                d[i] = 0;
+                matrix[i][s.length() - 1] = true;
+            }
         }
+        return d[0];
     }
 
-    private static boolean isPalindrome(String substring) {//check if is Palindrome
-        if (substring.length() == 1) {
-            return true;
-        } else {
-            if (palindromeMap.get(substring) != null) { //check it
-                return palindromeMap.get(substring);
-            }
-            boolean isPalindrome = false;
-            if (substring.length() == 2) {
-                isPalindrome = substring.charAt(0) == substring.charAt(1);
-            } else {
-                isPalindrome = substring.charAt(0) == substring.charAt(substring.length()-1) && isPalindrome(substring.substring(1, substring.length() - 1));
-            }
-            palindromeMap.put(substring, isPalindrome);//memorize it
-            return isPalindrome;
-        }
-    }
 
-    public static void main(String args[]){
-        System.out.println(minCut("adabdcaebdcebdcacaaaadbbcadabcbeabaadcbcaaddebdbddcbdacdbbaedbdaaecabdceddccbdeeddccdaabbabbdedaaabcdadbdabeacbeadbaddcbaacdbabcccbaceedbcccedbeecbccaecadccbdbdccbcbaacccbddcccbaedbacdbcaccdcaadcbaebebcceabbdcdeaabdbabadeaaaaedbdbcebcbddebccacacddebecabccbbdcbecbaeedcdacdcbdbebbacddddaabaedabbaaabaddcdaadcccdeebcabacdadbaacdccbeceddeebbbdbaaaaabaeecccaebdeabddacbedededebdebabdbcbdcbadbeeceecdcdbbdcbdbeeebcdcabdeeacabdeaedebbcaacdadaecbccbededceceabdcabdeabbcdecdedadcaebaababeedcaacdbdacbccdbcece"));
+    public static void main(String[] args) {
+        String a = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        //  String a ="bb";
+        long t1 = System.currentTimeMillis();
+        System.out.println(minCut(a));
+        long t2 = System.currentTimeMillis();
+        System.out.println(t2 - t1);
+
     }
 
 }
