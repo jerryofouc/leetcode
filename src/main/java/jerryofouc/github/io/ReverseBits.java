@@ -25,5 +25,7 @@ public class ReverseBits {
     public static void main(String[] args) {
         System.out.println(reverseBits(2));
         System.out.println(Integer.MIN_VALUE);
+        Double a = 3.432;
+        System.out.println(a.intValue());
     }
 }
