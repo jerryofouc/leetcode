@@ -15,6 +15,5 @@ public class HouseRobber {
             mem[i] = Math.max(nums[i]+mem[i+2],mem[i+1]);
         }
         return mem[0];
-
     }
 }
