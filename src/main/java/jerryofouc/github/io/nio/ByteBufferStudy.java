@@ -1,11 +1,6 @@
 package jerryofouc.github.io.nio;
 
-import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
-import java.nio.IntBuffer;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.*;
 
 /**
  * 功能介绍：
@@ -15,19 +10,39 @@ import java.util.concurrent.locks.ReentrantLock;
  *         Time: 9:03
  */
 public class ByteBufferStudy {
-    public static void main(String args[]){
-        ByteBuffer byteBuffer = ByteBuffer.allocate(100);
-        IntBuffer intBuffer = byteBuffer.asIntBuffer();
-        intBuffer.put(2);
+    public static void main(String args[]) throws ExecutionException, InterruptedException, ClassNotFoundException {
 
-        System.out.println(byteBuffer.get());;
-        System.out.println(byteBuffer.get());
-        System.out.println(byteBuffer.get());
-        System.out.println(byteBuffer.get());
 
-        CyclicBarrier cyclicBarrier;
-        ReentrantLock reentrantLock;
+        ExecutorService executor = Executors.newCachedThreadPool();
+        Future future = executor.submit(new Callable<Object>() {
+            @Override
+            public Object call() throws Exception {
+                Thread.sleep(10000);
+                return "aaa";
+            }
+        });
+
+        System.out.println(future.get());;
+
+        Thread thread = new Thread(new FutureTask<String>(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return "";
+            }
+        }
+
+        ));
         Semaphore semaphore;
 
+        ExecutorService executorService = Executors.newCachedThreadPool();
+
+        Class a = Class.forName("");
+
+        ExecutorService.class.getClassLoader();
+
+        ClassLoader classLoader;
+
+        return;
     }
+
 }
