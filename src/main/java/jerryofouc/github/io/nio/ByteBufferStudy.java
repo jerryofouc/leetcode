@@ -1,5 +1,6 @@
 package jerryofouc.github.io.nio;
 
+import java.io.*;
 import java.util.concurrent.*;
 
 /**
@@ -10,7 +11,7 @@ import java.util.concurrent.*;
  *         Time: 9:03
  */
 public class ByteBufferStudy {
-    public static void main(String args[]) throws ExecutionException, InterruptedException, ClassNotFoundException {
+    public static void main(String args[]) throws ExecutionException, InterruptedException, ClassNotFoundException, FileNotFoundException {
 
 
         ExecutorService executor = Executors.newCachedThreadPool();
@@ -42,6 +43,15 @@ public class ByteBufferStudy {
 
         ClassLoader classLoader;
 
+        InputStream inputStream;
+
+        BufferedInputStream bufferedInputStream =
+                new BufferedInputStream(new FileInputStream("/Users/xiaojiez/study/github/leetcode/a.json"));
+
+        String s;
+
+
+        InputStreamReader inputStreamReader;
         return;
     }
 
