@@ -1,510 +1,182 @@
 {
-  "resources": [
-    {
-      "itemTypeName": "tag",
-      "raw_value": "",
-      "28_350_mtbt4cmc001.webex.com": "",
-      "description": "",
-      "directory_str": "database",
-      "editable": 1,
-      "boxName": "28_350_mtbt4cmc001.webex.com",
-      "directory": [
-        "database"
-      ],
-      "optional": "",
-      "id": 179313,
-      "itemTypeId": 6,
-      "name": "database",
-      "level": "Pool",
-      "itemAliasName": "",
-      "children": [
-        {
-          "itemTypeName": "tag",
-          "raw_value": "",
-          "28_350_mtbt4cmc001.webex.com": "",
-          "description": "",
-          "directory_str": "database.db_backup_setting",
-          "editable": 1,
-          "boxName": "28_350_mtbt4cmc001.webex.com",
-          "directory": [
-            "database",
-            "db_backup_setting"
-          ],
-          "optional": "",
-          "id": 179314,
-          "itemTypeId": 6,
-          "name": "db_backup_setting",
-          "level": "Box",
-          "_parentId": 179313,
-          "itemAliasName": "",
-          "children": [
-            {
-              "itemTypeName": "boolean",
-              "raw_value": "false",
-              "28_350_mtbt4cmc001.webex.com": "false",
-              "description": "",
-              "directory_str": "database.db_backup_setting.enable",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "database",
-                "db_backup_setting",
-                "enable"
-              ],
-              "optional": "",
-              "id": 179315,
-              "itemTypeId": 4,
-              "name": "enable",
-              "level": "Box",
-              "_parentId": 179314,
-              "itemAliasName": "",
-              "children": [],
-              "value": "false",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "enable",
-              "state": "open"
+  "Job": {
+    "AllAtOnce": false,
+    "Constraints": null,
+    "CreateIndex": 0,
+    "Datacenters": [
+      "dc1"
+    ],
+    "ID": "activitiworkflow_HFE01_ssh_test_247",
+    "JobModifyIndex": 0,
+    "Meta": null,
+    "ModifyIndex": 0,
+    "Name": "activitiworkflow_HFE01_ssh_test_247",
+    "ParentID": "",
+    "Periodic": null,
+    "Priority": 50,
+    "Region": "hf",
+    "Status": "",
+    "StatusDescription": "",
+    "TaskGroups": [
+      {
+        "Constraints": null,
+        "Count": 1,
+        "Tasks": [
+          {
+            "Config": {
+              "image": "xiaojieaa/demo:latest",
+              "port_map": [
+                {
+                  "tomcat_port": "8090"
+                }
+              ]
             },
-            {
-              "itemTypeName": "string",
-              "raw_value": "0 2 * * *",
-              "28_350_mtbt4cmc001.webex.com": "0 2 * * *",
-              "description": "",
-              "directory_str": "database.db_backup_setting.timer",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "database",
-                "db_backup_setting",
-                "timer"
-              ],
-              "optional": "",
-              "id": 179316,
-              "itemTypeId": 3,
-              "name": "timer",
-              "level": "Box",
-              "_parentId": 179314,
-              "itemAliasName": "",
-              "children": [],
-              "value": "0 2 * * *",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "timer",
-              "state": "open"
+            "Constraints": null,
+            "Driver": "docker",
+            "Env": {
+              "dbhost": "10.10.33.125",
+              "dbuser": "hellotest",
+              "password": "456456"
             },
-            {
-              "itemTypeName": "string",
-              "raw_value": "db",
-              "28_350_mtbt4cmc001.webex.com": "db",
-              "description": "",
-              "directory_str": "database.db_backup_setting.swift_container",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "database",
-                "db_backup_setting",
-                "swift_container"
-              ],
-              "optional": "",
-              "id": 179317,
-              "itemTypeId": 3,
-              "name": "swift_container",
-              "level": "Box",
-              "_parentId": 179314,
-              "itemAliasName": "",
-              "children": [],
-              "value": "db",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "swift_container",
-              "state": "open"
-            }
-          ],
-          "value": "",
-          "configurable": 1,
-          "isFundamental": 1,
-          "supportMullti": "false",
-          "itemName": "db_backup_setting",
-          "state": "open"
-        }
-      ],
-      "value": "",
-      "configurable": 1,
-      "isFundamental": 1,
-      "supportMullti": "false",
-      "itemName": "database",
-      "state": "open"
+            "LogConfig": {
+              "MaxFileSizeMB": 10,
+              "MaxFiles": 10
+            },
+            "Resources": {
+              "CPU": 500,
+              "DiskMB": 0,
+              "IOPS": 0,
+              "MemoryMB": 512,
+              "Networks": [
+                {
+                  "CIDR": "",
+                  "DynamicPorts": [
+                    {
+                      "Label": "tomcat_port",
+                      "Value": 0
+                    }
+                  ],
+                  "IP": "",
+                  "MBits": 10,
+                  "Public": false,
+                  "ReservedPorts": null
+                }
+              ]
+            },
+            "User": "",
+            "name": "tomcat_sayhello_13"
+          }
+        ],
+        "name": "tomcat_sayhello_13"
+      },
+      {
+        "Constraints": null,
+        "Count": 1,
+        "Tasks": [
+          {
+            "Config": {
+              "image": "xiaojieaa/demo:latest",
+              "port_map": [
+                {
+                  "tomcat_port": "8090"
+                }
+              ]
+            },
+            "Constraints": null,
+            "Driver": "docker",
+            "Env": {
+              "dbhost": "10.10.33.125",
+              "dbuser": "hellotest",
+              "password": "456456"
+            },
+            "LogConfig": {
+              "MaxFileSizeMB": 10,
+              "MaxFiles": 10
+            },
+            "Resources": {
+              "CPU": 500,
+              "DiskMB": 0,
+              "IOPS": 0,
+              "MemoryMB": 512,
+              "Networks": [
+                {
+                  "CIDR": "",
+                  "DynamicPorts": [
+                    {
+                      "Label": "tomcat_port",
+                      "Value": 0
+                    }
+                  ],
+                  "IP": "",
+                  "MBits": 10,
+                  "Public": false,
+                  "ReservedPorts": null
+                }
+              ]
+            },
+            "User": "",
+            "name": "tomcat_sayhello_17"
+          }
+        ],
+        "name": "tomcat_sayhello_17"
+      },
+      {
+        "Constraints": null,
+        "Count": 1,
+        "Tasks": [
+          {
+            "Config": {
+              "image": "xiaojieaa/demo:latest",
+              "port_map": [
+                {
+                  "tomcat_port": "8090"
+                }
+              ]
+            },
+            "Constraints": null,
+            "Driver": "docker",
+            "Env": {
+              "dbhost": "10.10.33.125",
+              "dbuser": "hellotest",
+              "password": "456456"
+            },
+            "LogConfig": {
+              "MaxFileSizeMB": 10,
+              "MaxFiles": 10
+            },
+            "Resources": {
+              "CPU": 500,
+              "DiskMB": 0,
+              "IOPS": 0,
+              "MemoryMB": 512,
+              "Networks": [
+                {
+                  "CIDR": "",
+                  "DynamicPorts": [
+                    {
+                      "Label": "tomcat_port",
+                      "Value": 0
+                    }
+                  ],
+                  "IP": "",
+                  "MBits": 10,
+                  "Public": false,
+                  "ReservedPorts": null
+                }
+              ]
+            },
+            "User": "",
+            "name": "tomcat_sayhello_18"
+          }
+        ],
+        "name": "tomcat_sayhello_18"
+      }
+    ],
+    "Type": "service",
+    "Update": {
+      "MaxParallel": 1,
+      "Stagger": 10000000000
     },
-    {
-      "itemTypeName": "tag",
-      "raw_value": "",
-      "28_350_mtbt4cmc001.webex.com": "",
-      "description": "",
-      "directory_str": "JOB_LIST",
-      "editable": 1,
-      "boxName": "28_350_mtbt4cmc001.webex.com",
-      "directory": [
-        "JOB_LIST"
-      ],
-      "optional": "",
-      "id": 179360,
-      "itemTypeId": 6,
-      "name": "JOB_LIST",
-      "level": "Box",
-      "itemAliasName": "",
-      "children": [
-        {
-          "itemTypeName": "tag",
-          "raw_value": "",
-          "28_350_mtbt4cmc001.webex.com": "",
-          "description": "",
-          "directory_str": "JOB_LIST.serverTypeFromSlimJob",
-          "editable": 1,
-          "boxName": "28_350_mtbt4cmc001.webex.com",
-          "directory": [
-            "JOB_LIST",
-            "serverTypeFromSlimJob"
-          ],
-          "optional": "",
-          "id": 179361,
-          "itemTypeId": 6,
-          "name": "serverTypeFromSlimJob",
-          "level": "Box",
-          "_parentId": 179360,
-          "itemAliasName": "",
-          "children": [
-            {
-              "itemTypeName": "boolean",
-              "raw_value": "False",
-              "28_350_mtbt4cmc001.webex.com": "False",
-              "description": "",
-              "directory_str": "JOB_LIST.serverTypeFromSlimJob.enable",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "JOB_LIST",
-                "serverTypeFromSlimJob",
-                "enable"
-              ],
-              "optional": "",
-              "id": 179362,
-              "itemTypeId": 4,
-              "name": "enable",
-              "level": "Box",
-              "_parentId": 179361,
-              "itemAliasName": "",
-              "children": [],
-              "value": "False",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "enable",
-              "state": "open"
-            },
-            {
-              "itemTypeName": "string",
-              "raw_value": "60*60*24",
-              "28_350_mtbt4cmc001.webex.com": "60*60*24",
-              "description": "Seconds",
-              "directory_str": "JOB_LIST.serverTypeFromSlimJob.interval",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "JOB_LIST",
-                "serverTypeFromSlimJob",
-                "interval"
-              ],
-              "optional": "",
-              "id": 179363,
-              "itemTypeId": 3,
-              "name": "interval",
-              "level": "Box",
-              "_parentId": 179361,
-              "itemAliasName": "",
-              "children": [],
-              "value": "60*60*24",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "interval",
-              "state": "open"
-            }
-          ],
-          "value": "",
-          "configurable": 1,
-          "isFundamental": 1,
-          "supportMullti": "false",
-          "itemName": "serverTypeFromSlimJob",
-          "state": "open"
-        },
-        {
-          "itemTypeName": "tag",
-          "raw_value": "",
-          "28_350_mtbt4cmc001.webex.com": "",
-          "description": "",
-          "directory_str": "JOB_LIST.OnGoingTask",
-          "editable": 1,
-          "boxName": "28_350_mtbt4cmc001.webex.com",
-          "directory": [
-            "JOB_LIST",
-            "OnGoingTask"
-          ],
-          "optional": "",
-          "id": 179364,
-          "itemTypeId": 6,
-          "name": "OnGoingTask",
-          "level": "Box",
-          "_parentId": 179360,
-          "itemAliasName": "",
-          "children": [
-            {
-              "itemTypeName": "boolean",
-              "raw_value": "False",
-              "28_350_mtbt4cmc001.webex.com": "False",
-              "description": "",
-              "directory_str": "JOB_LIST.OnGoingTask.enable",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "JOB_LIST",
-                "OnGoingTask",
-                "enable"
-              ],
-              "optional": "",
-              "id": 179365,
-              "itemTypeId": 4,
-              "name": "enable",
-              "level": "Box",
-              "_parentId": 179364,
-              "itemAliasName": "",
-              "children": [],
-              "value": "False",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "enable",
-              "state": "open"
-            },
-            {
-              "itemTypeName": "integer",
-              "raw_value": "8",
-              "28_350_mtbt4cmc001.webex.com": "8",
-              "description": "Seconds",
-              "directory_str": "JOB_LIST.OnGoingTask.interval",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "JOB_LIST",
-                "OnGoingTask",
-                "interval"
-              ],
-              "optional": "",
-              "id": 179366,
-              "itemTypeId": 1,
-              "name": "interval",
-              "level": "Box",
-              "_parentId": 179364,
-              "itemAliasName": "",
-              "children": [],
-              "value": "8",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "interval",
-              "state": "open"
-            }
-          ],
-          "value": "",
-          "configurable": 1,
-          "isFundamental": 1,
-          "supportMullti": "false",
-          "itemName": "OnGoingTask",
-          "state": "open"
-        },
-        {
-          "itemTypeName": "tag",
-          "raw_value": "",
-          "28_350_mtbt4cmc001.webex.com": "",
-          "description": "",
-          "directory_str": "JOB_LIST.ServiceBuildArchive",
-          "editable": 1,
-          "boxName": "28_350_mtbt4cmc001.webex.com",
-          "directory": [
-            "JOB_LIST",
-            "ServiceBuildArchive"
-          ],
-          "optional": "",
-          "id": 179367,
-          "itemTypeId": 6,
-          "name": "ServiceBuildArchive",
-          "level": "Box",
-          "_parentId": 179360,
-          "itemAliasName": "",
-          "children": [
-            {
-              "itemTypeName": "string",
-              "raw_value": "False",
-              "28_350_mtbt4cmc001.webex.com": "False",
-              "description": "",
-              "directory_str": "JOB_LIST.ServiceBuildArchive.enable",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "JOB_LIST",
-                "ServiceBuildArchive",
-                "enable"
-              ],
-              "optional": "",
-              "id": 179368,
-              "itemTypeId": 3,
-              "name": "enable",
-              "level": "Box",
-              "_parentId": 179367,
-              "itemAliasName": "",
-              "children": [],
-              "value": "False",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "enable",
-              "state": "open"
-            },
-            {
-              "itemTypeName": "string",
-              "raw_value": "24*60*60",
-              "28_350_mtbt4cmc001.webex.com": "24*60*60",
-              "description": "",
-              "directory_str": "JOB_LIST.ServiceBuildArchive.interval",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "JOB_LIST",
-                "ServiceBuildArchive",
-                "interval"
-              ],
-              "optional": "",
-              "id": 179369,
-              "itemTypeId": 3,
-              "name": "interval",
-              "level": "Box",
-              "_parentId": 179367,
-              "itemAliasName": "",
-              "children": [],
-              "value": "24*60*60",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "interval",
-              "state": "open"
-            },
-            {
-              "itemTypeName": "string",
-              "raw_value": "10",
-              "28_350_mtbt4cmc001.webex.com": "10",
-              "description": "",
-              "directory_str": "JOB_LIST.ServiceBuildArchive.number",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "JOB_LIST",
-                "ServiceBuildArchive",
-                "number"
-              ],
-              "optional": "",
-              "id": 179370,
-              "itemTypeId": 3,
-              "name": "number",
-              "level": "Box",
-              "_parentId": 179367,
-              "itemAliasName": "",
-              "children": [],
-              "value": "10",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "number",
-              "state": "open"
-            },
-            {
-              "itemTypeName": "string",
-              "raw_value": "10",
-              "28_350_mtbt4cmc001.webex.com": "10",
-              "description": "",
-              "directory_str": "JOB_LIST.ServiceBuildArchive.duration",
-              "editable": 1,
-              "boxName": "28_350_mtbt4cmc001.webex.com",
-              "directory": [
-                "JOB_LIST",
-                "ServiceBuildArchive",
-                "duration"
-              ],
-              "optional": "",
-              "id": 179371,
-              "itemTypeId": 3,
-              "name": "duration",
-              "level": "Box",
-              "_parentId": 179367,
-              "itemAliasName": "",
-              "children": [],
-              "value": "10",
-              "configurable": 1,
-              "isFundamental": 1,
-              "supportMullti": "false",
-              "itemName": "duration",
-              "state": "open"
-            }
-          ],
-          "value": "",
-          "configurable": 1,
-          "isFundamental": 1,
-          "supportMullti": "false",
-          "itemName": "ServiceBuildArchive",
-          "state": "open"
-        }
-      ],
-      "value": "",
-      "configurable": 1,
-      "isFundamental": 1,
-      "supportMullti": "false",
-      "itemName": "JOB_LIST",
-      "state": "open"
-    },
-    {
-      "itemTypeName": "string",
-      "raw_value": "True",
-      "28_350_mtbt4cmc001.webex.com": "True",
-      "description": "",
-      "directory_str": "enable_dispatch_task_generator",
-      "editable": 1,
-      "boxName": "28_350_mtbt4cmc001.webex.com",
-      "directory": [
-        "enable_dispatch_task_generator"
-      ],
-      "optional": "",
-      "id": 179394,
-      "itemTypeId": 3,
-      "name": "enable_dispatch_task_generator",
-      "level": "Box",
-      "itemAliasName": "",
-      "children": [],
-      "value": "True",
-      "configurable": 1,
-      "isFundamental": 1,
-      "supportMullti": "false",
-      "itemName": "enable_dispatch_task_generator",
-      "state": "open"
-    }
-  ],
-  "boxList": [
-    {
-      "box_num": 1,
-      "poo_id": "28",
-      "box_name_list": [
-        "28_350_mtbt4cmc001.webex.com"
-      ]
-    }
-  ]
+    "VaultToken": ""
+  }
 }

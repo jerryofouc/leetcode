@@ -2,6 +2,7 @@ package jerryofouc.github.io.nio;
 
 import java.io.*;
 import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 功能介绍：
@@ -52,6 +53,8 @@ public class ByteBufferStudy {
 
 
         InputStreamReader inputStreamReader;
+
+        ReentrantLock reentrantLock;
         return;
     }
 
