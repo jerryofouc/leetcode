@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by xiaojiez on 3/17/17.
@@ -50,5 +51,6 @@ public class RepeatedSubstringPattern {
 
     public static void main(String[] args) {
         System.out.println(repeatedSubstringPattern("ababab"));
+        CopyOnWriteArrayList copyOnWriteArrayList;
     }
 }

@@ -13,7 +13,7 @@ def build_tree(l):
                 root.left = TreeNode(int(l[index*2+1]))
                 get_node(root.left,index*2+1)
 
-        if index*2+1 < len(l):
+        if index*2+2 < len(l):
             if l[index*2+2] != "null":
                 root.right = TreeNode(int(l[index*2+2]))
                 get_node(root.right,index*2+2)
