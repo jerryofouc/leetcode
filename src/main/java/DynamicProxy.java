@@ -1,6 +1,10 @@
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Created by xiaojiez on 9/9/17.
@@ -18,6 +22,9 @@ public class DynamicProxy {
         });
 
         System.out.println(helloInterface.helloWord());
+        BlockingQueue blockingQueue = new LinkedBlockingQueue();
+        CountDownLatch countDownLatch;
+        CyclicBarrier cyclicBarrier;
 
     }
 }
